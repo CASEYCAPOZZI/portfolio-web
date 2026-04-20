@@ -1,0 +1,5 @@
+---
+alwaysApply: true
+---
+
+I am building a Spring Boot backend and a Next.js frontend. Always assume I use Tailwind for styling and Lombok for Java models. When writing fetch calls, remember my API is at https://caseycapozzi.com.
