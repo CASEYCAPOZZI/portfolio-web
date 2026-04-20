@@ -18,7 +18,7 @@ export default function Home() {
   const [apiStatus, setApiStatus] = useState<ApiStatus>(null);
 
   useEffect(() => {
-    fetch('https://caseycapozzi.com/api/v1/status')
+    fetch('https://api.caseycapozzi.com/api/v1/status')
       .then(res => res.json())
       .then(data => setApiStatus(data))
       .catch(() => setApiStatus({ status: "Offline" }));
