@@ -1,0 +1,18 @@
+---
+alwaysApply: true
+---
+
+This project is a Next.js frontend for a professional portfolio.
+
+Deployment:
+- AWS Amplify (connected to GitLab) is the deployment platform for the frontend.
+- Always prioritize AWS Amplify-compatible configurations (build output, caching, environment variables, rewrites/redirects, image optimization, and runtime settings).
+
+Backend:
+- Java Spring Boot API hosted on AWS ECS at https://api.caseycapozzi.com.
+- Prefer calling the API via the `api.caseycapozzi.com` origin (not the website root domain).
+
+Infrastructure:
+- Custom domain `caseycapozzi.com` managed via AWS Route 53.
+- Assume production traffic reaches Amplify (frontend) and ECS (API) behind their respective AWS-managed endpoints.
+

@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Overview
+
+This repository contains the **Next.js frontend** for my professional portfolio at `caseycapozzi.com`.
+
+- **Frontend**: Next.js (App Router)
+- **Deployment**: AWS Amplify (connected to GitLab)
+- **Backend API**: Java Spring Boot on AWS ECS at `https://api.caseycapozzi.com`
+- **DNS / Domain**: Route 53 manages `caseycapozzi.com`
 
 ## Getting Started
 
-First, run the development server:
+- **Install**
+
+```bash
+npm install
+```
+
+- **Run locally**
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This app calls the public API at `https://api.caseycapozzi.com`.
 
-## Learn More
+If you introduce environment-based API routing, keep it **AWS Amplify-compatible** and prefer:
 
-To learn more about Next.js, take a look at the following resources:
+- `NEXT_PUBLIC_*` variables for browser-accessible configuration
+- Amplify Console environment variables for deployment-time configuration
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment (AWS Amplify)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Amplify builds and deploys on pushes via the GitLab connection.
+- Keep configuration compatible with Amplify’s Next.js support (avoid platform-specific files and assumptions).
 
-## Deploy on Vercel
+## Related Repos
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Backend API**: Java Spring Boot service (AWS ECS) serving `https://api.caseycapozzi.com`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Tech
+
+- Next.js: `https://nextjs.org/docs`

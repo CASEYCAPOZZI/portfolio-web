@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { Mail, MapPin, Briefcase, Code2, Terminal, Info, ArrowUpRight } from 'lucide-react';
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import NextLink from 'next/link';
+import Image from 'next/image';
 
 type ApiStatus = {
   status?: string;
@@ -16,12 +17,14 @@ function isApiOnline(apiStatus: ApiStatus) {
 
 export default function Home() {
   const [apiStatus, setApiStatus] = useState<ApiStatus>(null);
+  const [apiStatusLoading, setApiStatusLoading] = useState(true);
 
   useEffect(() => {
-    fetch('https://api.caseycapozzi.com/api/v1/status')
-      .then(res => res.json())
-      .then(data => setApiStatus(data))
-      .catch(() => setApiStatus({ status: "Offline" }));
+    fetch('/api/status')
+      .then((res) => res.json())
+      .then((data) => setApiStatus(data))
+      .catch(() => setApiStatus({ status: 'Offline' }))
+      .finally(() => setApiStatusLoading(false));
   }, []);
 
   return (
@@ -35,9 +38,17 @@ export default function Home() {
       <nav className="relative max-w-3xl mx-auto py-10 px-6 flex justify-between items-center">
         <NextLink
           href="/"
-          className="font-extrabold tracking-tight text-lg text-slate-100 hover:text-white"
+          className="flex items-center gap-3 font-extrabold tracking-tight text-lg text-slate-100 hover:text-white"
           aria-label="Home"
         >
+          <Image
+            src="/profile.png"
+            alt="Casey Capozzi"
+            width={32}
+            height={32}
+            className="rounded-full border border-slate-800/80"
+            priority
+          />
           caseycapozzi.com
         </NextLink>
         <div className="flex gap-5 items-center">
@@ -93,12 +104,12 @@ export default function Home() {
 
         <div className="mt-8 flex flex-wrap gap-3">
           <a
-            href="https://api.caseycapozzi.com/api/v1/status"
+            href="/api/docs"
             target="_blank"
             rel="noreferrer noopener"
             className="inline-flex items-center gap-2 rounded-lg border border-blue-500/25 bg-blue-500/10 px-3 py-1.5 text-xs font-semibold text-blue-200/90 hover:bg-blue-500/15"
           >
-            Live status API <ArrowUpRight size={14} />
+            API docs (Swagger) <ArrowUpRight size={14} />
           </a>
           <a
             href="mailto:capozzicasey@gmail.com"
@@ -191,11 +202,16 @@ export default function Home() {
           <div className="flex items-center gap-3">
             <div
               className={`w-2 h-2 rounded-full ${
-                isApiOnline(apiStatus) ? 'bg-emerald-400' : 'bg-slate-500 animate-pulse'
+                apiStatusLoading
+                  ? 'bg-slate-500 animate-pulse'
+                  : isApiOnline(apiStatus)
+                    ? 'bg-emerald-400'
+                    : 'bg-rose-400'
               }`}
             />
             <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-              Live AWS Core: {isApiOnline(apiStatus) ? 'Active' : 'Checking...'}
+              Live AWS Core:{' '}
+              {apiStatusLoading ? 'Checking...' : isApiOnline(apiStatus) ? 'Active' : 'Offline'}
             </span>
           </div>
           <span className="text-[10px] text-slate-500 font-mono">
