@@ -1,4 +1,5 @@
-import { GraduationCap } from 'lucide-react';
+import { GraduationCap, Mail } from 'lucide-react';
+import { FaLinkedinIn } from 'react-icons/fa';
 import { RoleEntry } from '../components/RoleEntry';
 
 const experience = [
@@ -47,39 +48,17 @@ export default function ResumePage() {
     <div className="max-w-3xl mx-auto px-6 pb-24">
 
       {/* ── PAGE HEADER ──────────────────────────────────────── */}
-      <header className="pt-12 pb-10">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-          {/* Left — name + title */}
-          <div>
-            <h1 className="text-3xl md:text-4xl font-black tracking-tight text-slate-50">
-              Casey Capozzi
-            </h1>
-            <div className="mt-4 flex items-center gap-3">
-              <div className="h-px w-8 bg-blue-500/60" />
-              <p className="text-base text-blue-300/80 font-semibold tracking-wide">
-                Senior Software Engineer
-              </p>
-            </div>
-          </div>
-
-          {/* Right — contact info stacked */}
-          <div className="flex flex-col gap-2 text-sm md:text-right">
-            <a
-              href="mailto:capozzicasey@gmail.com"
-              className="font-mono text-slate-400 hover:text-slate-200 transition-colors"
-            >
-              capozzicasey@gmail.com
-            </a>
-            <span className="font-mono text-slate-500">715-450-5502</span>
-            <span className="font-mono text-slate-500">Eau Claire, WI</span>
-          </div>
-        </div>
-
-        <div className="mt-10 border-t border-slate-800/70" />
+      <header className="pt-10 pb-6">
+        {/* Mobile: plain "Resume" label. Desktop: name as heading. */}
+        <h1 className="text-slate-50 font-black tracking-tight text-2xl md:text-4xl">
+          <span className="md:hidden">Resume</span>
+          <span className="hidden md:inline">Casey Capozzi</span>
+        </h1>
+        <div className="mt-5 border-t border-slate-800/70" />
       </header>
 
       {/* ── EXPERIENCE ───────────────────────────────────────── */}
-      <section className="mt-10">
+      <section className="mt-6">
         <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-slate-500 mb-8">Experience</p>
 
         <div className="relative">
@@ -131,6 +110,27 @@ export default function ResumePage() {
             </div>
           ))}
         </dl>
+      </section>
+
+      {/* ── CONTACT ──────────────────────────────────────────── */}
+      <section className="border-t border-slate-800/70 mt-10 pt-10">
+        <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400 mb-6">Get in Touch</h2>
+        <div className="flex flex-wrap gap-3">
+          <a
+            href="mailto:capozzicasey@gmail.com"
+            className="inline-flex items-center gap-2 rounded-lg border border-slate-800 bg-slate-900/60 px-4 py-2.5 text-sm font-semibold text-slate-200 hover:bg-slate-900/80 transition-colors"
+          >
+            <Mail size={15} className="text-slate-400" /> Email
+          </a>
+          <a
+            href="https://www.linkedin.com/in/casey-capozzi-188b2a128/"
+            target="_blank"
+            rel="noreferrer noopener"
+            className="inline-flex items-center gap-2 rounded-lg border border-slate-800 bg-slate-900/60 px-4 py-2.5 text-sm font-semibold text-slate-200 hover:text-[#0A66C2] hover:bg-slate-900/80 transition-colors"
+          >
+            <FaLinkedinIn size={15} /> LinkedIn
+          </a>
+        </div>
       </section>
 
     </div>

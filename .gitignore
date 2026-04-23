@@ -38,3 +38,7 @@ yarn-error.log*
 next-env.d.ts
 
 .vercel
+
+# Cursor local project data (keep rules, ignore machine-local state)
+.cursor/cache/
+.cursor/logs/

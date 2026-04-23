@@ -2,7 +2,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Mail, ArrowUpRight, Network, Hammer } from 'lucide-react';
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
-type SkillTier = 'current' | 'proficient' | 'growing';
+
+type SkillTier = 'current' | 'growing';
 
 const skills: { label: string; tier: SkillTier }[] = [
   { label: 'Java',         tier: 'current' },
@@ -10,21 +11,20 @@ const skills: { label: string; tier: SkillTier }[] = [
   { label: 'AWS',          tier: 'current' },
   { label: 'GitLab CI/CD', tier: 'current' },
   { label: 'REST Assured',  tier: 'current' },
-  { label: 'Python',       tier: 'proficient' },
-  { label: 'Docker',       tier: 'proficient' },
-  { label: 'Next.js',      tier: 'proficient' },
-  { label: 'PostgreSQL',   tier: 'proficient' },
+  { label: 'Karate',       tier: 'current' },
+  { label: 'Python',       tier: 'growing' },
+  { label: 'Docker',       tier: 'growing' },
+  { label: 'Next.js',      tier: 'growing' },
+  { label: 'PostgreSQL',   tier: 'growing' },
   { label: 'TypeScript',   tier: 'growing' },
-  { label: 'Karate',       tier: 'growing' },
 ];
 
 const tierMeta: Record<SkillTier, { label: string; className: string }> = {
-  current:    { label: 'Current Focus', className: 'border-blue-500/40 bg-blue-500/10 text-blue-200' },
-  proficient: { label: 'Proficient',    className: 'border-emerald-500/30 bg-emerald-500/10 text-emerald-200' },
-  growing:    { label: 'Growing',       className: 'border-slate-600/60 bg-slate-800/60 text-slate-300' },
+  current: { label: 'Current Focus', className: 'border-blue-500/40 bg-blue-500/10 text-blue-200' },
+  growing: { label: 'Growing',       className: 'border-slate-600/60 bg-slate-800/60 text-slate-300' },
 };
 
-const tierOrder: SkillTier[] = ['current', 'proficient', 'growing'];
+const tierOrder: SkillTier[] = ['current', 'growing'];
 
 export default function Home() {
   return (
@@ -90,6 +90,14 @@ export default function Home() {
           >
             API docs <ArrowUpRight size={14} />
           </a>
+          <a
+            href="https://github.com/CASEYCAPOZZI"
+            target="_blank"
+            rel="noreferrer noopener"
+            className="inline-flex items-center gap-2 rounded-lg border border-slate-800 bg-slate-900/60 px-3 py-2 text-xs font-semibold text-slate-200 hover:bg-slate-900/80"
+          >
+            <FaGithub size={14} /> GitHub <ArrowUpRight size={14} />
+          </a>
         </div>
       </header>
 
@@ -143,7 +151,7 @@ export default function Home() {
             href="mailto:capozzicasey@gmail.com"
             className="inline-flex items-center gap-2 rounded-lg border border-slate-800 bg-slate-900/60 px-4 py-2.5 text-sm font-semibold text-slate-200 hover:bg-slate-900/80 transition-colors"
           >
-            <Mail size={15} className="text-slate-400" /> capozzicasey@gmail.com
+            <Mail size={15} className="text-slate-400" /> Email
           </a>
           <a
             href="https://www.linkedin.com/in/casey-capozzi-188b2a128/"
@@ -152,14 +160,6 @@ export default function Home() {
             className="inline-flex items-center gap-2 rounded-lg border border-slate-800 bg-slate-900/60 px-4 py-2.5 text-sm font-semibold text-slate-200 hover:text-[#0A66C2] hover:bg-slate-900/80 transition-colors"
           >
             <FaLinkedinIn size={15} /> LinkedIn
-          </a>
-          <a
-            href="https://github.com/CASEYCAPOZZI"
-            target="_blank"
-            rel="noreferrer noopener"
-            className="inline-flex items-center gap-2 rounded-lg border border-slate-800 bg-slate-900/60 px-4 py-2.5 text-sm font-semibold text-slate-200 hover:text-slate-50 hover:bg-slate-900/80 transition-colors"
-          >
-            <FaGithub size={15} /> GitHub
           </a>
         </div>
       </section>
