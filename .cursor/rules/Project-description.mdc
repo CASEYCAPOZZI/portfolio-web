@@ -2,4 +2,36 @@
 alwaysApply: true
 ---
 
-I am building a Spring Boot backend and a Next.js frontend. Always assume I use Tailwind for styling and Lombok for Java models. When writing fetch calls, remember my API is at https://api.caseycapozzi.com.
+I am building a Spring Boot backend and a Next.js frontend for my professional portfolio at caseycapozzi.com.
+
+## Tech Stack
+- Frontend: Next.js (App Router), TypeScript, Tailwind CSS
+- Backend: Java Spring Boot with Lombok, hosted on AWS ECS
+- Styling: Always use Tailwind CSS — never inline styles or CSS modules unless absolutely necessary
+- Icons: lucide-react (preferred), react-icons as secondary
+
+## API
+- Production: https://api.caseycapozzi.com
+- Local dev: http://localhost:8080
+- Next.js dev server: http://localhost:3000
+- API calls from the browser go through Next.js proxy routes (`/api/status`, `/api/docs`) to avoid CORS
+
+## React / Next.js Conventions
+- Prefer server components for pages that do not need state or browser APIs
+- Add `"use client"` only when a component uses hooks, event handlers, or browser APIs
+- Always use named exports for components (not default exports) — except for Next.js page files, which must use default exports
+- New components go in `app/components/`
+- New pages go in `app/<route>/page.tsx`
+
+## Java Conventions
+- Always use Lombok (`@Data`, `@Builder`, `@RequiredArgsConstructor`, etc.) — never write boilerplate getters/setters
+- Use constructor injection (not field injection) in Spring beans
+
+## Key Files
+- `app/layout.tsx` — shared layout with Navigation and Footer
+- `app/components/Navigation.tsx` — floating pill nav (icons + labels, active route state)
+- `app/components/Footer.tsx` — footer with AWS status line
+- `app/components/LiveAwsCoreStatus.tsx` — polls `/api/status` and shows online/offline
+- `app/api/status/route.ts` — server-side proxy to the Spring Boot `/api/v1/status` endpoint
+- `app/api/docs/route.ts` — server-side redirect to Swagger UI
+- `TODO.md` — always check this at the start of a session for outstanding work
