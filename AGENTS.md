@@ -88,6 +88,162 @@ Always check `TODO.md` for the current task list. Key pending items as of the la
 - **Resume polish** — AmFam bullet points need a rewrite once Casey has updated notes
 - **Download Resume button** — copy PDF to `public/`, add download link on `/resume`
 
+## New Machine Setup (Windows)
+
+Everything you need to go from a blank Windows machine to fully running both repos locally.
+
+### 1 — Package Manager (winget, built into Windows 10/11)
+
+`winget` is already available — use it for everything below. Open **PowerShell as Administrator** for installs.
+
+---
+
+### 2 — Core Tools
+
+```powershell
+# Git
+winget install --id Git.Git -e
+
+# Node.js v22 LTS
+winget install --id OpenJS.NodeJS.LTS -e
+
+# Java JDK 26 (matches pom.xml java.version)
+winget install --id Oracle.JDK.26 -e
+
+# Python 3.12+
+winget install --id Python.Python.3.12 -e
+
+# Docker Desktop (for container builds/local API testing)
+winget install --id Docker.DockerDesktop -e
+
+# AWS CLI v2
+winget install --id Amazon.AWSCLI -e
+
+# Cursor IDE
+winget install --id Anysphere.Cursor -e
+```
+
+After installing, **close and reopen PowerShell** so PATH updates take effect. Verify:
+
+```powershell
+git --version
+node --version      # should be v22.x
+npm --version       # should be 11.x
+java --version      # should be 26
+python --version    # should be 3.12.x
+docker --version
+aws --version
+```
+
+---
+
+### 3 — GitLab SSH Key
+
+```powershell
+ssh-keygen -t ed25519 -C "your@email.com"
+# Accept defaults (saves to C:\Users\<you>\.ssh\id_ed25519)
+
+# Print the public key — paste this into GitLab → Settings → SSH Keys
+Get-Content "$env:USERPROFILE\.ssh\id_ed25519.pub"
+```
+
+GitLab: **Avatar → Preferences → SSH Keys → Add new key**
+
+---
+
+### 4 — Clone Repos
+
+```powershell
+mkdir C:\Users\<you>\git
+cd C:\Users\<you>\git
+
+git clone git@gitlab.com:<your-username>/portfolio-web.git
+git clone git@gitlab.com:<your-username>/portfolio-api.git
+```
+
+---
+
+### 5 — Run portfolio-web (Next.js)
+
+```powershell
+cd portfolio-web
+npm install
+npm run dev
+# → http://localhost:3000
+```
+
+No `.env` file needed for basic local dev. The proxy routes (`/api/status`, `/api/docs`) automatically target `localhost:8080` when `NODE_ENV=development`.
+
+---
+
+### 6 — Run portfolio-api (Spring Boot)
+
+```powershell
+cd portfolio-api
+.\mvnw spring-boot:run
+# → http://localhost:8080
+```
+
+Maven wrapper (`mvnw`) is included — no separate Maven install needed.
+
+Swagger UI: `http://localhost:8080/swagger-ui/index.html`
+
+---
+
+### 7 — AWS CLI Setup (for ECS / Amplify / ECR work)
+
+```powershell
+aws configure
+# AWS Access Key ID:     <from IAM console>
+# AWS Secret Access Key: <from IAM console>
+# Default region:        us-east-1  (or wherever your resources are)
+# Default output format: json
+```
+
+Get keys from: **AWS Console → IAM → Users → your user → Security credentials → Create access key**
+
+---
+
+### 8 — Cursor Extensions
+
+After opening Cursor, paste this into a terminal to install all extensions at once:
+
+```powershell
+cursor --install-extension amazonwebservices.aws-toolkit-vscode
+cursor --install-extension bradlc.vscode-tailwindcss
+cursor --install-extension dbaeumer.vscode-eslint
+cursor --install-extension eamodio.gitlens
+cursor --install-extension esbenp.prettier-vscode
+cursor --install-extension rangav.vscode-thunder-client
+cursor --install-extension redhat.java
+cursor --install-extension usernamehw.errorlens
+cursor --install-extension vmware.vscode-boot-dev-pack
+cursor --install-extension vmware.vscode-spring-boot
+cursor --install-extension vscjava.vscode-gradle
+cursor --install-extension vscjava.vscode-java-debug
+cursor --install-extension vscjava.vscode-java-dependency
+cursor --install-extension vscjava.vscode-java-pack
+cursor --install-extension vscjava.vscode-java-test
+cursor --install-extension vscjava.vscode-maven
+cursor --install-extension vscjava.vscode-spring-boot-dashboard
+cursor --install-extension vscjava.vscode-spring-initializr
+cursor --install-extension wallabyjs.console-ninja
+```
+
+---
+
+### 9 — Optional but Recommended
+
+```powershell
+# Windows Terminal (better than default PowerShell window)
+winget install --id Microsoft.WindowsTerminal -e
+
+# Oh My Posh (nicer shell prompt)
+winget install --id JanDeDobbeleer.OhMyPosh -e
+```
+
+---
+
 ## Cursor Extensions
 
 These are the extensions installed in Cursor on Casey's machine. Install these when setting up on a new PC:
