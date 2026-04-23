@@ -7,16 +7,9 @@ Update this file as things get done or priorities shift.
 
 ## 🔴 High Priority
 
-### portfolio-api — Fix ECS / ALB Production Deployment
-The API is currently returning a 503 from the AWS ALB in production (`api.caseycapozzi.com`).
-Swagger routes also return 404, meaning the new Swagger commit has not successfully deployed.
-
-- [ ] Confirm the ECS task is running and healthy in the AWS Console
-- [ ] Check the ALB target group health check path — should point to `/health`
-- [ ] Verify the ECS task container port (likely `8080`) matches the target group port
-- [ ] Check security group rules allow traffic from the ALB to the ECS task
-- [ ] Confirm the latest image (with Swagger) was pushed to ECR and the ECS service was updated
-- [ ] Once the service is healthy, verify `/swagger-ui/index.html` and `/api/v1/status` both return 200
+### ~~portfolio-api — Fix ECS / ALB Production Deployment~~ ✅ RESOLVED
+API returning `{"status":"UP and running!","environment":"production"}` — confirmed healthy.
+- [ ] Verify `/swagger-ui/index.html` returns 200 and is browsable (not yet confirmed)
 
 ---
 

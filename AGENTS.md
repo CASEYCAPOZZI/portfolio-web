@@ -84,10 +84,58 @@ Amplify env vars use `NEXT_PUBLIC_*` prefix for browser-accessible config. `NODE
 
 Always check `TODO.md` for the current task list. Key pending items as of the last session:
 
-- **ECS / ALB 503 in prod** — API is down in production; needs ECS health check + target group debug
 - **Playground page** — minimal stub, intentionally hidden from nav until ready
 - **Resume polish** — AmFam bullet points need a rewrite once Casey has updated notes
 - **Download Resume button** — copy PDF to `public/`, add download link on `/resume`
+
+## Cursor Extensions
+
+These are the extensions installed in Cursor on Casey's machine. Install these when setting up on a new PC:
+
+| Extension ID | Description |
+|---|---|
+| `amazonwebservices.aws-toolkit-vscode` | AWS Toolkit (S3, ECS, Lambda explorer) |
+| `bradlc.vscode-tailwindcss` | Tailwind CSS IntelliSense |
+| `dbaeumer.vscode-eslint` | ESLint |
+| `eamodio.gitlens` | GitLens — enhanced Git history/blame |
+| `esbenp.prettier-vscode` | Prettier code formatter |
+| `rangav.vscode-thunder-client` | Thunder Client (REST API client) |
+| `redhat.java` | Java Language Support |
+| `usernamehw.errorlens` | Error Lens — inline error highlighting |
+| `vmware.vscode-boot-dev-pack` | Spring Boot Dev Pack |
+| `vmware.vscode-spring-boot` | Spring Boot Tools |
+| `vscjava.vscode-gradle` | Gradle support |
+| `vscjava.vscode-java-debug` | Java Debugger |
+| `vscjava.vscode-java-dependency` | Java Dependency Viewer |
+| `vscjava.vscode-java-pack` | Java Extension Pack |
+| `vscjava.vscode-java-test` | Java Test Runner |
+| `vscjava.vscode-maven` | Maven support |
+| `vscjava.vscode-spring-boot-dashboard` | Spring Boot Dashboard |
+| `vscjava.vscode-spring-initializr` | Spring Initializr |
+| `wallabyjs.console-ninja` | Console Ninja — runtime value inspection |
+
+To install all at once on a new machine, run from a terminal:
+```bash
+cursor --install-extension amazonwebservices.aws-toolkit-vscode
+cursor --install-extension bradlc.vscode-tailwindcss
+cursor --install-extension dbaeumer.vscode-eslint
+cursor --install-extension eamodio.gitlens
+cursor --install-extension esbenp.prettier-vscode
+cursor --install-extension rangav.vscode-thunder-client
+cursor --install-extension redhat.java
+cursor --install-extension usernamehw.errorlens
+cursor --install-extension vmware.vscode-boot-dev-pack
+cursor --install-extension vmware.vscode-spring-boot
+cursor --install-extension vscjava.vscode-gradle
+cursor --install-extension vscjava.vscode-java-debug
+cursor --install-extension vscjava.vscode-java-dependency
+cursor --install-extension vscjava.vscode-java-pack
+cursor --install-extension vscjava.vscode-java-test
+cursor --install-extension vscjava.vscode-maven
+cursor --install-extension vscjava.vscode-spring-boot-dashboard
+cursor --install-extension vscjava.vscode-spring-initializr
+cursor --install-extension wallabyjs.console-ninja
+```
 
 ---
 
