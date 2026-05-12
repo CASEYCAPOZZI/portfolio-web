@@ -28,19 +28,14 @@ The `/playground` page exists but is minimal. It is intentionally hidden from th
     ```
 
 ### portfolio-web — Resume Content Polish
-The resume page descriptions are pulled from the original PDF and could be tightened up significantly.
+Keep the web resume aligned with your PDF when you revise either one.
 
-- [ ] **Update AmFam experience** — rewrite to better reflect current senior-level responsibilities, recent projects, and impact (ask AI to help punch up the language once you have updated notes)
-- [ ] **AI cleanup pass on all three role descriptions** — condense and sharpen bullet points across AmFam, Menards, and Midwest Manufacturing
-- [ ] **Keep `app/resume/page.tsx` and `Casey_Capozzi_Resume.pdf` in sync** after any content changes — update both at the same time
+- [ ] **Keep `app/resume/page.tsx` and `public/Casey_Capozzi_Resume.pdf` in sync** after any content changes — update both at the same time
 
-### portfolio-web — Download Resume Button
-Add a button on the `/resume` page so visitors can download a PDF copy directly.
-
-- [ ] Copy the latest `Casey_Capozzi_Resume.pdf` into `portfolio-web/public/` so it is served as a static asset
-- [ ] Add a download button to the resume page header (e.g. "Download PDF" with a `Download` Lucide icon)
-  - Use `<a href="/Casey_Capozzi_Resume.pdf" download>` — Next.js serves `public/` files at the root
-- [ ] Each time the PDF resume is updated, replace `public/Casey_Capozzi_Resume.pdf` and update the web resume content to match
+### ~~portfolio-web — Download Resume Button~~ ✅ Done
+- [x] `public/Casey_Capozzi_Resume.pdf` served at `/Casey_Capozzi_Resume.pdf`
+- [x] Download button on resume page header (`Download` Lucide icon)
+- Workflow: replace `public/Casey_Capozzi_Resume.pdf` and refresh `app/resume/page.tsx` when the resume changes
 
 ### portfolio-web — Personal Projects Section
 The home page has a "Check back soon" placeholder for personal projects.

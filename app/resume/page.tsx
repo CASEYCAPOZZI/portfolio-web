@@ -1,60 +1,93 @@
-import { GraduationCap, Mail } from 'lucide-react';
+import { GraduationCap, Mail, Download } from 'lucide-react';
 import { FaLinkedinIn } from 'react-icons/fa';
 import { RoleEntry } from '../components/RoleEntry';
 
 const experience = [
   {
     company: 'American Family Enterprise',
-    title: 'Senior Software Engineer',
+    title: 'Senior Engineer',
     dates: 'June 2022 — Present',
-    summary: 'Built and maintained API test suites and CI/CD automation across multiple teams, driving quality and release confidence at an enterprise scale.',
+    summary:
+      'GitLab Wiki command center for pipelines, Python/Jira–Xray automation, multi-cloud validation with GCP, OAuth 2.0 and AWS Secrets Manager, and AI-assisted legacy refactors.',
     bullets: [
-      'Designed and developed API test suites using Rest Assured and Karate for multiple applications, leveraging GitLab CI/CD pipelines, Python, and Bash scripting to schedule tests and upload results via Xray and Jira APIs.',
-      'Responsible for developing and maintaining both targeted feature tests and comprehensive regression tests, coordinating testing efforts across several development teams to ensure seamless integration of changes across interconnected applications.',
-      'Managed task allocation among testers on my team, aligning assignments with capacity and expertise in various testing frameworks to optimize productivity and effectiveness.',
+      'Architected a centralized GitLab Wiki dashboard that serves as a command center for scheduled runs, providing real-time status tracking and the ability to trigger pipeline executions directly from the UI.',
+      'Engineered an automated lifecycle bridge using Python and APIs to dynamically update Jira/Xray details, significantly reducing manual administrative overhead.',
+      'Synchronized multi-cloud data integrity by collaborating with GCP teams to validate that streaming data matched AWS environments, ensuring consistency across the enterprise data lake.',
+      'Hardened application security by implementing OAuth 2.0 and migrating sensitive credentials from hard-coded configurations to AWS Secrets Manager.',
+      'Transformed high-complexity, legacy projects into optimized structures using Claude, reducing execution times and improving system readability for the entire engineering team.',
+      'Drove engineering excellence through active participation in the Community of Excellence, leading code reviews, and partnering with performance teams to ensure scalability standards.',
+      'Collaborated within an Agile/Scrum framework, working closely with Product Owners to translate high-level requirements into technical design and participating in strategic release planning.',
     ],
   },
   {
     company: 'Menards Inc.',
     title: 'Developer II',
     dates: 'May 2018 — June 2022',
-    summary: 'Led a two-year redesign of the enterprise Time & Attendance system, delivering Java applications, Oracle SQL reporting, and cross-platform features while mentoring junior developers.',
+    summary:
+      'Lead on a two-year Time & Attendance redesign, intelligent store scheduling, mission-critical web apps for desktop and mobile, Oracle reporting, and junior developer mentorship.',
     bullets: [
-      'Led the redesign of key concepts and structure of the Time and Attendance system during a two-year project, collaborating with business users, development, QA, and infrastructure teams to define requirements and test cases.',
-      'Developed and maintained several Java web applications and services integral to the Time and Attendance system, as well as complex Oracle SQL reports for business use.',
-      'Developed and tested features for the team member portal ensuring compatibility across desktop and mobile devices; served as lead mentor for two team members, creating tutorials and documentation for the team.',
+      'Held a lead role in the two-year structural redesign of the enterprise Time and Attendance system, modernizing core logic and system architecture to improve scalability and performance.',
+      'Took a lead role in developing an intelligent resource-allocation model that automated store scheduling by cross-referencing employee skills, experience, and shift preferences against operational requirements.',
+      'Engineered mission-critical web services and applications, ensuring seamless functionality across both desktop and mobile team member portals.',
+      'Optimized organizational data strategy by authoring complex Oracle SQL solutions to deliver actionable reporting on labor metrics and business insights.',
+      'Served in a lead role for junior developer mentorship, establishing best practices and technical documentation that increased team velocity.',
     ],
   },
   {
     company: 'Midwest Manufacturing',
     title: 'Java Intern',
     dates: 'May 2017 — May 2018',
-    summary: 'Maintained Java and .NET applications supporting manufacturing operations at the Countertops plants.',
+    summary: 'Java and .NET apps for manufacturing plants and internal tools for countertop production workflows.',
     bullets: [
-      'Maintained standalone Java applications and .NET applications used at the Countertops plants.',
+      'Maintained standalone Java and .NET applications for manufacturing plants, ensuring continuous operational uptime and cross-platform compatibility.',
+      'Contributed to internal software solutions designed to streamline production workflows within the countertop manufacturing division.',
     ],
   },
 ];
 
 const techSections: { label: string; items: string }[] = [
-  { label: 'Languages',    items: 'Java, MySQL, Oracle SQL, JavaScript, HTML, CSS, XML, JSON' },
-  { label: 'Frameworks',   items: 'Spring, Java Servlet, JSP, JMS, jQuery, Apache ActiveMQ, Rest Assured, Karate, Cucumber' },
-  { label: 'Tooling',      items: 'Maven, Jenkins, Nexus, Git, Unix, IntelliJ, DataGrip, Eclipse, AWS, Docker, Postman' },
-  { label: 'Process',      items: 'GitLab, BitBucket, Jira, Confluence, Xray, Zabbix, Agile Scrum' },
+  {
+    label: 'AI-augmented development',
+    items:
+      'Advanced prompt engineering; GPT-4 to accelerate delivery; cross-language solutions; refactoring complex legacy systems; workflow automation with Claude (Sonnet).',
+  },
+  {
+    label: 'Core engineering',
+    items: 'API design; database management (SQL/Oracle); legacy system modernization; system architecture.',
+  },
+  {
+    label: 'DevOps & automation',
+    items:
+      'AWS; custom automation (e.g. Datadog MCP); Docker; GitLab CI/CD; GitLab Wiki dashboards with integrated pipeline triggering; Xray/Jira APIs.',
+  },
+  {
+    label: 'Enterprise architecture',
+    items: 'Messaging (ActiveMQ/JMS); microservices; modern automation frameworks (Karate, REST Assured).',
+  },
 ];
 
 export default function ResumePage() {
   return (
     <div className="max-w-3xl mx-auto px-6 pb-24">
-
       {/* ── PAGE HEADER ──────────────────────────────────────── */}
       <header className="pt-10 pb-6">
-        {/* Mobile: plain "Resume" label. Desktop: name as heading. */}
-        <h1 className="text-slate-50 font-black tracking-tight text-2xl md:text-4xl">
-          <span className="md:hidden">Resume</span>
-          <span className="hidden md:inline">Casey Capozzi</span>
-        </h1>
-        <div className="mt-5 border-t border-slate-800/70" />
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
+          <div className="min-w-0 flex-1">
+            <h1 className="text-slate-50 font-black tracking-tight text-2xl md:text-4xl">
+              <span className="md:hidden">Resume</span>
+              <span className="hidden md:inline">Casey Capozzi</span>
+            </h1>
+            <div className="mt-5 border-t border-slate-800/70" />
+          </div>
+          <a
+            href="/Casey_Capozzi_Resume.pdf"
+            download="Casey_Capozzi_Resume.pdf"
+            className="inline-flex shrink-0 items-center justify-center gap-2 self-start rounded-lg border border-slate-700 bg-slate-900/70 px-4 py-2.5 text-xs font-semibold text-slate-200 hover:border-slate-600 hover:bg-slate-900 transition-colors"
+          >
+            <Download size={14} className="text-blue-400" />
+            Download PDF
+          </a>
+        </div>
       </header>
 
       {/* ── EXPERIENCE ───────────────────────────────────────── */}
@@ -62,7 +95,6 @@ export default function ResumePage() {
         <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-slate-500 mb-8">Experience</p>
 
         <div className="relative">
-          {/* Timeline spine */}
           <div className="absolute left-0 top-2 bottom-2 w-px bg-slate-800" />
 
           <div className="space-y-12 pl-6">
@@ -88,7 +120,9 @@ export default function ResumePage() {
           <div className="flex items-start gap-3">
             <GraduationCap size={16} className="text-slate-500 mt-0.5 shrink-0" />
             <div>
-              <p className="text-sm font-semibold text-slate-200">IT — Software Development, Associate&apos;s Degree</p>
+              <p className="text-sm font-semibold text-slate-200">
+                IT — Software Development, Associate&apos;s Degree
+              </p>
               <p className="text-sm text-slate-500">Chippewa Valley Technical College</p>
             </div>
           </div>
@@ -96,14 +130,14 @@ export default function ResumePage() {
         </div>
       </section>
 
-      {/* ── TECHNOLOGIES ─────────────────────────────────────── */}
+      {/* ── SKILLS ───────────────────────────────────────────── */}
       <section className="mt-14 pt-8 border-t border-slate-800/70">
-        <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-slate-500 mb-6">Technologies</p>
+        <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-slate-500 mb-6">Skills</p>
 
         <dl className="space-y-3.5">
           {techSections.map(({ label, items }) => (
             <div key={label} className="flex gap-4">
-              <dt className="text-[11px] font-bold uppercase tracking-wider text-slate-500 w-24 shrink-0 pt-0.5">
+              <dt className="text-[11px] font-bold uppercase tracking-wider text-slate-500 w-40 shrink-0 pt-0.5 leading-snug">
                 {label}
               </dt>
               <dd className="text-[14px] text-slate-300 leading-relaxed">{items}</dd>
@@ -132,7 +166,6 @@ export default function ResumePage() {
           </a>
         </div>
       </section>
-
     </div>
   );
 }

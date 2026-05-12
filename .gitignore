@@ -42,3 +42,6 @@ next-env.d.ts
 # Cursor local project data (keep rules, ignore machine-local state)
 .cursor/cache/
 .cursor/logs/
+
+# Local resume drop (served file: public/Casey_Capozzi_Resume.pdf)
+/Casey's Resume.pdf

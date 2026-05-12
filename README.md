@@ -14,7 +14,7 @@ This repository contains the **Next.js frontend** for my professional portfolio 
 | Route           | Description                                              |
 |-----------------|----------------------------------------------------------|
 | `/`             | Hero landing — bio, tech stack tiers, contact section    |
-| `/resume`       | Career history, education, technologies                  |
+| `/resume`       | Career history, education, skills; PDF download (`/Casey_Capozzi_Resume.pdf`) |
 | `/architecture` | AWS infrastructure overview (Amplify, ECS, Route 53, ALB)|
 | `/playground`   | Live API health check dashboard *(hidden from nav)*      |
 

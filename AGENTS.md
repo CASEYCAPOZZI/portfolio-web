@@ -26,7 +26,7 @@ GitLab CI/CD          → pushes trigger Amplify builds
 | Route           | File                          | Purpose                                          |
 |-----------------|-------------------------------|--------------------------------------------------|
 | `/`             | `app/page.tsx`                | Hero landing page — bio, tech stack, contact     |
-| `/resume`       | `app/resume/page.tsx`         | Career history, education, technologies          |
+| `/resume`       | `app/resume/page.tsx`         | Career history, skills, PDF at `/Casey_Capozzi_Resume.pdf` |
 | `/architecture` | `app/architecture/page.tsx`   | AWS infrastructure overview (card-based)         |
 | `/playground`   | `app/playground/page.tsx`     | Live API health check dashboard (hidden from nav) |
 
@@ -86,7 +86,7 @@ Always check `TODO.md` for the current task list. Key pending items as of the la
 
 - **Playground page** — minimal stub, intentionally hidden from nav until ready
 - **Resume polish** — AmFam bullet points need a rewrite once Casey has updated notes
-- **Download Resume button** — copy PDF to `public/`, add download link on `/resume`
+- **Keep resume + PDF in sync** — `app/resume/page.tsx` and `public/Casey_Capozzi_Resume.pdf`
 
 ## New Machine Setup (Windows)
 
